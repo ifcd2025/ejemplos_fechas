@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title></title>
+</head>
+<body>
+    <form>
+        <label for="fecha1">Fecha 1</label>
+        <input type="date" name="fecha1" id="fecha1">
+        <label for="fecha2">Fecha 2</label>
+        <input type="date" name="fecha2" id="fecha2">
+        <input type="button" id="comprobar" name="comprobar" value="comprobar">
+    </form>
+    <script>
+        document.getElementById("comprobar").addEventListener("click",() => {
+            const fecha1 = document.getElementById("fecha1");
+            const fecha2 = document.getElementById("fecha2");
+
+            // Si no seleccionamos una fecha, value devuelve "" y valueAsDate null
+            // Si seleccionamos una fecha, value devuelve una cadena en formato aaaa-mm-dd y
+            // valueAsDate un objeto Date con la fecha
+            // Si la fecha escrita es incorrecta, value devuelve "" y valueAsDate null
+            console.log(fecha1.value);
+            console.log(fecha1.valueAsDate);
+            if(fecha1.value == "") { // if(fecha1.valueAsDate == null) {
+                console.log("La fecha falta o es incorrecta");
+            }
+            // Para comparar fechas podemos usar value o valueAsDate
+            if(fecha1.value > fecha2.value) {
+                console.log("La primera fecha debe ser menor a la segunda");
+            }
+            // Si usamos valueAsDate y queremos solo la fecha, una opción es:
+            // - toString() devuleve una cadena con la fecha de la forma aaaa-mm-ddThh:mm:ss
+            console.log(fecha1.valueAsDate.toString().split("T")[0]);
+
+
+
+
+
+
+        } );
+
+    </script>
+
+</body>
+</html>
